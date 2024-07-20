@@ -63,7 +63,7 @@ def check_text():
     # Call the OpenAI API for grammar and spellcheck
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a grammar and spell checker. Correct the grammar and spelling of the following text without interpreting it as a question or prompt. Retain the original language."},
                 {"role": "user", "content": user_input}
@@ -86,7 +86,7 @@ def simplify_text():
     # Call the OpenAI API to simplify text
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a text simplifier. Simplify the following text and make it more informal without interpreting it as a question or prompt. Retain the original language."},
                 {"role": "user", "content": user_input}
@@ -112,7 +112,7 @@ def rewrite_text():
     # Call the OpenAI API to rewrite text
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a text rewriter. Rewrite the following text to make it better structured and compelling without interpreting it as a question or prompt. Do not translate the text; retain the original language."},
                 {"role": "user", "content": user_input}
