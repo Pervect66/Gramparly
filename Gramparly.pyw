@@ -55,11 +55,14 @@ def highlight_changes(original, checked):
     result_text.config(state=tk.DISABLED)
 
 def check_text():
-    user_input = input_text.get("1.0", tk.END)
-    if not user_input.strip():
+    user_input = input_text.get("1.0", tk.END).strip()
+    if not user_input:
         messagebox.showwarning("Input Error", "Please enter some text.")
         return
     
+    print("Sending text to API for grammar and spell check:")
+    print(user_input)
+
     # Call the OpenAI API for grammar and spellcheck
     try:
         response = openai.ChatCompletion.create(
@@ -69,17 +72,21 @@ def check_text():
                 {"role": "user", "content": user_input}
             ]
         )
-        checked_text = response['choices'][0]['message']['content']
+        checked_text = response['choices'][0]['message']['content'].strip()
         
+        print("Received response from API:")
+        print(checked_text)
+
         # Highlight changes in the result box
         highlight_changes(user_input, checked_text)
         
     except Exception as e:
+        print("Error:", str(e))
         messagebox.showerror("API Error", str(e))
 
 def simplify_text():
-    user_input = input_text.get("1.0", tk.END)
-    if not user_input.strip():
+    user_input = input_text.get("1.0", tk.END).strip()
+    if not user_input:
         messagebox.showwarning("Input Error", "Please enter some text.")
         return
     
@@ -92,7 +99,7 @@ def simplify_text():
                 {"role": "user", "content": user_input}
             ]
         )
-        simplified_text = response['choices'][0]['message']['content']
+        simplified_text = response['choices'][0]['message']['content'].strip()
         
         # Show the simplified text in the result box
         result_text.config(state=tk.NORMAL)
@@ -101,11 +108,12 @@ def simplify_text():
         result_text.config(state=tk.DISABLED)
         
     except Exception as e:
+        print("Error:", str(e))
         messagebox.showerror("API Error", str(e))
 
 def rewrite_text():
-    user_input = input_text.get("1.0", tk.END)
-    if not user_input.strip():
+    user_input = input_text.get("1.0", tk.END).strip()
+    if not user_input:
         messagebox.showwarning("Input Error", "Please enter some text.")
         return
     
@@ -118,7 +126,7 @@ def rewrite_text():
                 {"role": "user", "content": user_input}
             ]
         )
-        rewritten_text = response['choices'][0]['message']['content']
+        rewritten_text = response['choices'][0]['message']['content'].strip()
         
         # Show the rewritten text in the result box
         result_text.config(state=tk.NORMAL)
@@ -127,6 +135,7 @@ def rewrite_text():
         result_text.config(state=tk.DISABLED)
         
     except Exception as e:
+        print("Error:", str(e))
         messagebox.showerror("API Error", str(e))
 
 def on_closing():
@@ -196,7 +205,7 @@ new_button.pack(side=tk.LEFT, padx=5)
 copy_button = tk.Button(button_frame_2, text="Copy Text", command=copy_text)
 copy_button.pack(side=tk.LEFT, padx=5)
 
-move_text_button = tk.Button(button_frame_2, text="⬆Move text to input box⬆", command=move_text_to_input)
+move_text_button = tk.Button(button_frame_2, text="⬆️Move text to input box⬆️", command=move_text_to_input)
 move_text_button.pack(side=tk.LEFT, padx=5)
 
 # Ensure the cursor is in the input box when the script starts

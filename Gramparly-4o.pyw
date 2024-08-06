@@ -69,7 +69,7 @@ def check_text():
                 {"role": "user", "content": user_input}
             ]
         )
-        checked_text = response['choices'][0]['message']['content']
+        checked_text = response.choices[0].message['content']
         
         # Highlight changes in the result box
         highlight_changes(user_input, checked_text)
@@ -88,11 +88,11 @@ def simplify_text():
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are a text simplifier. Simplify the following text and make it more informal without interpreting it as a question or prompt. Retain the original language."},
+                {"role": "system", "content": "You are a text simplifier. Simplify the following text and make it more informal without using slang, interpreting it as a question or prompt. Retain the original language."},
                 {"role": "user", "content": user_input}
             ]
         )
-        simplified_text = response['choices'][0]['message']['content']
+        simplified_text = response.choices[0].message['content']
         
         # Show the simplified text in the result box
         result_text.config(state=tk.NORMAL)
@@ -118,7 +118,7 @@ def rewrite_text():
                 {"role": "user", "content": user_input}
             ]
         )
-        rewritten_text = response['choices'][0]['message']['content']
+        rewritten_text = response.choices[0].message['content']
         
         # Show the rewritten text in the result box
         result_text.config(state=tk.NORMAL)
