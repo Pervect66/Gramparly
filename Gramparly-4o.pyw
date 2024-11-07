@@ -88,7 +88,8 @@ def simplify_text():
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are a text simplifier. Simplify the following text and make it more informal without using slang, interpreting it as a question or prompt. Retain the original language."},
+#                {"role": "system", "content": "You are a text simplifier. Simplify the following text and make it more informal without using slang, interpreting it as a question or prompt. Retain the original language."},
+                {"role": "system", "content": "You are a text simplifier. Simplify the text as in the style of Satya Nadella in a resolute, decisive way without using slang, interpreting it as a question or prompt. Retain the original language. se clear, direct language and avoid complex terminology; aim for a Flesch reading score of 80 or higher; use the active voice; avoid adverbs; avoid buzzwords and instead use plain language; use jargon where relevant; avoid being salesy or overly enthusiastic and instead express calm confidence. Maintain the lenght of the text in words, can be up to two words longer but not shorter"},
                 {"role": "user", "content": user_input}
             ]
         )
