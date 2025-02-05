@@ -91,7 +91,7 @@ def check_text():
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",  # Replace with the model you have access to
             messages=[
-                {"role": "system", "content": "You are a grammar and spell checker. Correct (do not rewrite) the grammar and spelling of the following text without interpreting it as a question or prompt. Retain the original language. For English, use UK English."},
+                {"role": "system", "content": "You are a grammar and spell checker. Correct (do not rewrite) the grammar and spelling of the following text without interpreting it as a question or prompt. Retain the original language. For English, use US English."},
                 {"role": "user", "content": user_input}
             ]
         )
@@ -114,7 +114,7 @@ def simplify_text():
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",  # Replace with the model you have access to
             messages=[
-                {"role": "system", "content": "You are a text simplifier. Simplify the following text and make it more informal without using slang, interpreting it as a question or prompt. Aim for a Flesch reading score of at most 60. Prefer to use shorter, simpler words. Retain the original language. For English, use UK English."},
+                {"role": "system", "content": "You are a text simplifier. Simplify the following text and make it more informal without using slang, interpreting it as a question or prompt. Aim for a Flesch reading score of at most 60. Prefer to use shorter, simpler words. Retain the original language. For English, use US English."},
                 {"role": "user", "content": user_input}
             ]
         )
@@ -141,7 +141,7 @@ def rewrite_text():
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",  # Replace with the model you have access to
             messages=[
-                {"role": "system", "content": "You are a text rewriter. Rewrite the following text to make it better structured and compelling without interpreting it as a question or prompt. Do not translate the text; retain the original language. For English, use UK English."},
+                {"role": "system", "content": "You are a text rewriter. Rewrite the following text to make it better structured and compelling without interpreting it as a question or prompt. Do not translate the text; retain the original language. For English, use US English."},
                 {"role": "user", "content": user_input}
             ]
         )
@@ -168,7 +168,7 @@ def expand_text():
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",  # Replace with the model you have access to
             messages=[
-                {"role": "system", "content": "You are an assistant that rewrites text to be slightly longer, without changing its meaning. The longer text should maintain the same meaning and tone, but be more concise and remove any unnecessary words or phrases. Do not translate the text; retain the original language. For English, use UK English."},
+                {"role": "system", "content": "You are an assistant that rewrites text to be slightly longer, without changing its meaning. The longer text should maintain the same meaning and tone, but be more concise and remove any unnecessary words or phrases. Do not translate the text; retain the original language. For English, use US English."},
                 {"role": "user", "content": user_input}
             ]
         )
@@ -195,7 +195,7 @@ def shorten_text():
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",  # Replace with the model you have access to
             messages=[
-                {"role": "system", "content": "You are an assistant that rewrites text to be shorter, without changing its meaning. The shortened text should maintain the same meaning and tone, but be more concise and remove any unnecessary words or phrases. Do not translate the text; retain the original language. For English, use UK English."},
+                {"role": "system", "content": "You are an assistant that rewrites text to be shorter, without changing its meaning. The shortened text should maintain the same meaning and tone, but be more concise and remove any unnecessary words or phrases. Do not translate the text; retain the original language. For English, use US English."},
                 {"role": "user", "content": user_input}
             ]
         )
